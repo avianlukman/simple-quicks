@@ -23,10 +23,13 @@
       </div>
       <!-- Days Count, Date, Toggle, Action -->
       <div class="flex flex-row space-x-3 items-center">
+        <!-- Days Count -->
         <p class="font-lato font-light text-sm text-indicator-red">
           2 Days left
         </p>
+        <!-- Date -->
         <p class="font-lato font-light text-sm text-primary-dark-grey">Date</p>
+        <!-- Dropdown icon -->
         <svgIcon
           v-if="isOpen"
           @click="toggleDropdown"
@@ -58,24 +61,44 @@
       </div>
     </div>
     <!-- Task Content -->
-    <div class="flex flex-col pl-10 pt-3">
+    <div class="flex flex-col pl-10 pt-3 space-y-3">
       <!-- Date Picker -->
-      <div class="flex flex-row" style="gap: 18px">
+      <div class="flex flex-row items-center" style="gap: 18px">
         <!-- Icon -->
+        <svgIcon
+          size="20"
+          path="M8.99187 0.666672C4.39187 0.666672 0.66687 4.40001 0.66687 9.00001C0.66687 13.6 4.39187 17.3333 8.99187 17.3333C13.6002 17.3333 17.3335 13.6 17.3335 9.00001C17.3335 4.40001 13.6002 0.666672 8.99187 0.666672ZM9.00037 15.6667C5.31703 15.6667 2.3337 12.6833 2.3337 9C2.3337 5.31667 5.31703 2.33334 9.00037 2.33334C12.6837 2.33334 15.667 5.31667 15.667 9C15.667 12.6833 12.6837 15.6667 9.00037 15.6667ZM8.16687 4.83334H9.41687V9.20834L13.1669 11.4333L12.5419 12.4583L8.16687 9.83334V4.83334Z"
+          stroke="none"
+          fill="primary-dark-grey"
+          viewBox="0 0 24 24"
+        />
         <!-- Picker -->
       </div>
       <!-- Description -->
-      <div class="flex flex-row" style="gap: 18px">
+      <div class="flex flex-row items-leading" style="gap: 18px">
         <!-- Icon -->
+        <svgIcon
+          class="mt-1"
+          size="20"
+          path="M12.2165 0C12.0082 0 11.7915 0.0833333 11.6332 0.241667L10.1082 1.76667L13.2332 4.89167L14.7582 3.36667C15.0832 3.04167 15.0832 2.51667 14.7582 2.19167L12.8082 0.241667C12.6415 0.075 12.4332 0 12.2165 0ZM9.21667 5.01667L9.98333 5.78333L2.43333 13.3333H1.66667V12.5667L9.21667 5.01667ZM0 11.875L9.21667 2.65833L12.3417 5.78333L3.125 15H0V11.875Z"
+          stroke="none"
+          fill="primary-dark-grey"
+          viewBox="0 0 24 24"
+        />
         <!-- Text Field -->
+        <TextField></TextField>
       </div>
     </div>
   </div>
 </template>
 <script>
 import svgIcon from "./svg.vue";
+import TextField from "./textField.vue";
 export default {
-  components: { svgIcon },
+  components: {
+    svgIcon,
+    TextField,
+  },
   data() {
     return {
       isOpen: false,
