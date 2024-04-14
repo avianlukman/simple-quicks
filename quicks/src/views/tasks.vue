@@ -1,25 +1,30 @@
 <template>
-  <div class="flex h-1/2 w-full flex-col bg-white py-6 px-8 items-center">
+  <div class="flex flex-col w-full h-full bg-white py-6 px-8 items-center">
     <!-- Header -->
-    <SearchBar />
+    <div class="flex flex-row w-full justify-between">
+      <!-- Drop Down -->
+      <DropDown />
+      <!-- Button -->
+      <PrimaryButton buttonTitle="New Task"></PrimaryButton>
+    </div>
     <!-- Content -->
     <LoadingAnimation :isLoading="isLoading" loadingText="Loading chats ..." />
     <div v-if="!isLoading" class="w-full h-full">
       <!-- <Chat /> -->
     </div>
+    <!-- Tasks -->
   </div>
 </template>
-
 <script>
-import SearchBar from "../components/searchBar.vue";
 import LoadingAnimation from "../components/loading.vue";
-// import Chat from "../components/chat.vue";
+import DropDown from "../components/dropDown.vue";
+import PrimaryButton from "../components/button.vue";
 
 export default {
   components: {
-    SearchBar,
     LoadingAnimation,
-    // Chat,
+    DropDown,
+    PrimaryButton,
   },
   data() {
     return {
