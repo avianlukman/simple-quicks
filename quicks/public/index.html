@@ -6,6 +6,14 @@
     <meta name="viewport" content="width=device-width,initial-scale=1.0">
     <link rel="icon" href="<%= BASE_URL %>favicon.ico">
     <title><%= htmlWebpackPlugin.options.title %></title>
+    <script src="https://unpkg.com/vue@latest"></script>
+    <script src="https://unpkg.com/@vuepic/vue-datepicker@latest"></script>
+    <link rel="stylesheet" href="https://unpkg.com/@vuepic/vue-datepicker@latest/dist/main.css">
+    <script>
+      const app = Vue.createApp({
+        components: { VueDatePicker },
+      }).mount("#app");
+    </script>
   </head>
   <body>
     <noscript>

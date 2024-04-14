@@ -6,23 +6,29 @@
       style="padding-right: 25px"
     >
       <!-- Check Box & Task Name  -->
-      <div class="flex flex-row space-x-5 items-center">
+      <div class="flex flex-row space-x-5 w-full justify-center">
         <!-- Check Box -->
         <svgIcon
-          class="w-5 h-5 text-gray-500 hover:text-gray-700 mt-2 cursor-pointer"
-          size="24"
+          class="cursor-pointer mt-2"
+          size="18"
           path="M2 0H16C17.1 0 18 0.9 18 2V16C18 17.1 17.1 18 16 18H2C0.9 18 0 17.1 0 16V2C0 0.9 0.9 0 2 0ZM16 16V2H2V16H16Z"
           stroke="none"
           fill="primary-grey"
           viewBox="0 0 24 24"
         />
         <!-- Task Name -->
+        <TextField
+          maxLines="2"
+          fontWeight="bold"
+          placeholder="Type Task Title"
+        ></TextField>
+        <!-- 
         <p class="font-lato font-bold text-base text-primary-dark-grey">
           Task Name
-        </p>
+        </p> -->
       </div>
       <!-- Days Count, Date, Toggle, Action -->
-      <div class="flex flex-row space-x-3 items-center">
+      <div class="flex flex-row w-full space-x-3 items-center justify-end">
         <!-- Days Count -->
         <p class="font-lato font-light text-sm text-indicator-red">
           2 Days left
@@ -61,7 +67,7 @@
       </div>
     </div>
     <!-- Task Content -->
-    <div class="flex flex-col pl-10 pt-3 space-y-3">
+    <div v-if="isOpen" class="flex flex-col pl-10 pt-3 space-y-3">
       <!-- Date Picker -->
       <div class="flex flex-row items-center" style="gap: 18px">
         <!-- Icon -->
@@ -73,6 +79,20 @@
           viewBox="0 0 24 24"
         />
         <!-- Picker -->
+        <div class="flex" style="width: 200px">
+          <VueDatePicker
+            placeholder="Set Date"
+            v-model="date"
+            :format="format"
+            auto-apply
+            month-name-format="long"
+            :clearable="false"
+            :min-date="new Date() + 1"
+            :enable-time-picker="false"
+            no-today
+          >
+          </VueDatePicker>
+        </div>
       </div>
       <!-- Description -->
       <div class="flex flex-row items-leading" style="gap: 18px">
@@ -86,7 +106,7 @@
           viewBox="0 0 24 24"
         />
         <!-- Text Field -->
-        <TextField></TextField>
+        <TextField placeholder="No Description"></TextField>
       </div>
     </div>
   </div>
@@ -94,14 +114,30 @@
 <script>
 import svgIcon from "./svg.vue";
 import TextField from "./textField.vue";
+import VueDatePicker from "@vuepic/vue-datepicker";
+import "@vuepic/vue-datepicker/dist/main.css";
+import { ref, computed } from "vue";
+
+const date = ref(new Date());
+
+const format = (date) => {
+  const day = date.getDate();
+  const month = date.getMonth() + 1;
+  const year = date.getFullYear();
+
+  return ` ${year}/${day}/${month}/`;
+};
+
 export default {
   components: {
     svgIcon,
     TextField,
+    VueDatePicker,
   },
   data() {
     return {
       isOpen: false,
+      date: null,
     };
   },
   methods: {

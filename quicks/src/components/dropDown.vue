@@ -1,5 +1,5 @@
 <template>
-  <div class="flex flex-col items-center">
+  <div class="flex flex-col">
     <!-- Dorpdown Button -->
     <div
       class="flex flex-row cursor-pointer border border-primary-grey rounded-md items-center justify-center"
@@ -8,6 +8,7 @@
         padding-right: 14px;
         padding-top: 10px;
         padding-bottom: 10px;
+        margin-left: 80px;
       "
       @click="toggleDropdown"
     >
@@ -34,7 +35,7 @@
     <!-- Dropdown Menu -->
     <div
       v-if="isOpen"
-      class="bg-white border border-gray-300 shadow-lg rounded-md overflow-hidden"
+      class="absolute z-50 top-20 left-14 bg-white border border-gray-300 shadow-lg rounded-md overflow-hidden"
       style="margin-top: 7px; width: 288px"
     >
       <div class="dropdown-item py-2 px-4 border-b cursor-pointer">
