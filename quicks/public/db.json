@@ -1,0 +1,104 @@
+[   
+    {
+        "page" : "inbox",
+        "chats" : [
+            {
+                "subject" : "1-589-AMARKHIL, Obaidullah [Affirmative Filing with ZHN]",
+                "participants" : 3,
+                "chat" : [
+                    {
+                        "sender" : "Mary Hilda",
+                        "date" : "19:32",
+                        "text" : "Just fill me in with his updates yea?",
+                        "status" : "read"
+                    },
+                    {
+                        "sender" : "you",
+                        "date" : "19:32",
+                        "text" : "No worries. It will be completed ASAP. I've asked him yesterday.",
+                        "status" : "read"
+                    },
+                    {
+                        "sender" : "Mary Hilda",
+                        "date" : "19:32",
+                        "text" : "Hello Obaidullah, I will be your case advisor for case #029290. I have assigned some homework for you to fill. Please keep up with the due dates. Should you have any questions, you can message me anytime. Thanks.",
+                        "status" : "read"
+                    },
+                    {
+                        "sender" : "you",
+                        "date" : "19:32",
+                        "text" : "Please contact Mary for questions regarding the case bcs she will be managing your forms from now on! Thanks Mary.",
+                        "status" : "read"
+                    },
+                    {
+                        "sender" : "Mary Hilda",
+                        "date" : "19:32",
+                        "text" : "Sure thing, Claren",
+                        "status" : "read"
+                    },
+                    {
+                        "sender" : "Obaidullah Amarkhil",
+                        "date" : "19:32",
+                        "text" : "Morning. I'll try to do them. Thanks",
+                        "status" : "unread"
+                    }
+                ]
+
+            },
+            {
+                "subject" : "FastVisa Support",
+                "participants" : 2,
+                "chat" : [
+                    {
+                        "sender" : "FastVisa Support",
+                        "date" : "19:32",
+                        "text" : "Hey there. Welcome to your inbox! Contact us for more information and help about anything! We'll send you a response as soon as possible.",
+                        "status" : "read"
+                    },
+                    {
+                        "sender" : "you",
+                        "date" : "19.32",
+                        "text" : "Hi, I need help with something can you help me?",
+                        "status" : "read"
+                    }
+                ]
+
+            }
+        ]
+    },
+    {
+        "page" : "task",
+        "tasks" : [
+            {
+                "title" : "Close off Case #012920- RODRIGUES, Amiguel",
+                "status" : "pending",
+                "due-date" : "04/30/2024",
+                "description" : "Closing off this case since this application has been cancelled. No one really understand how this case could possibly be cancelled. The options and the documents within this document were totally a guaranteed for a success!"
+            },
+            {
+                "title" : "Set up documentation report for several Cases: Case 145443, Case 192829 and Case 182203",
+                "status" : "pending",
+                "due-date" : "04/28/2024",
+                "description" : "All Cases must include all payment transactions, all documents and forms filled. All conversations in comments and messages in channels and emails should be provided as well in."
+            },
+            {
+                "title" : "Set up appointment with Dr Blake",
+                "status" : "pending",
+                "due-date" : "04/26/2024",
+                "description" : ""
+            },
+            {
+                "title" : "Contact Mr Caleb video conference?",
+                "status" : "done",
+                "due-date" : "",
+                "description" : ""
+            },
+            {
+                "title" : "Assign 3 homework to Client A",
+                "status" : "done",
+                "due-date" : "",
+                "description" : ""
+            }
+        ]
+    }
+]

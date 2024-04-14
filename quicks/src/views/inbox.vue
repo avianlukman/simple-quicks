@@ -7,7 +7,11 @@
     <!-- Content -->
     <LoadingAnimation :isLoading="isLoading" loadingText="Loading chats ..." />
     <div v-if="!isLoading" class="w-full h-full">
-      <Chat />
+      <Chat
+        v-for="(chat, index) in this.chats[0].chats"
+        :key="index"
+        :chatData="chat"
+      />
     </div>
   </div>
 </template>
@@ -23,12 +27,24 @@ export default {
     LoadingAnimation,
     Chat,
   },
+  created() {
+    this.getChats();
+  },
   data() {
     return {
       isLoading: true,
+      chats: [],
     };
   },
   methods: {
+    async getChats() {
+      let result = await fetch("db.json");
+      let data = await result.json();
+
+      this.chats = data;
+      console.log("success load data");
+      console.log(this.chats[0].chats.length);
+    },
     fetchData() {
       setTimeout(() => {
         this.isLoading = false;

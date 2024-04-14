@@ -3,8 +3,12 @@
     class="flex flex-row border-b border-primary-grey space-x-4"
     style="padding-top: 22px; padding-bottom: 22px"
   >
-    <!-- Icon -->
-    <div class="items-center justify-center" style="width: 51px">
+    <!-- Multiple Participants Icon -->
+    <div
+      v-if="chatParticipants > 2"
+      class="items-center justify-center"
+      style="width: 51px"
+    >
       <div class="relative">
         <div
           class="absolute inset-0 flex items-center justify-center rounded-full p-2 bg-primary-light-grey"
@@ -36,22 +40,43 @@
         </div>
       </div>
     </div>
+    <!-- Single Participants Icon -->
+    <div
+      v-if="chatParticipants < 3"
+      class="items-center justify-center"
+      style="width: 51px"
+    >
+      <div class="relative">
+        <div
+          class="absolute items-center align-center rounded-full p-2 bg-primary"
+          style="width: 34px; height: 34px"
+        >
+          <p class="font-lato font-bold text-base text-white text-center">
+            {{ senderFirstLetter }}
+          </p>
+        </div>
+      </div>
+    </div>
     <!-- Details -->
     <div class="flex flex-col space-y-2">
       <!-- Heading & Date -->
       <div class="flex flex-row space-x-4">
         <!-- Heading -->
-        <p class="font-lato font-bold text-base text-primary">Heading</p>
+        <p class="font-lato font-bold text-base text-primary">
+          {{ chatSubject }}
+        </p>
         <!-- Date -->
         <p class="font-lato font-light text-base text-primary-dark-grey">
-          Date
+          {{ getLastChatDate }}
         </p>
       </div>
       <!-- Name & Last Chat -->
       <div class="flex flex-col space-y-1">
-        <p class="font-lato font-bold text-sm text-primary-dark-grey">Name</p>
+        <p class="font-lato font-bold text-sm text-primary-dark-grey">
+          {{ getLastChatSender }}
+        </p>
         <p class="font-lato font-light text-sm text-primary-dark-grey">
-          Last Chat
+          {{ getLastChatText }}
         </p>
       </div>
     </div>
@@ -63,6 +88,56 @@ import svgIcon from "./svg.vue";
 export default {
   components: {
     svgIcon,
+  },
+  props: {
+    // props validation with default value
+    chatData: {
+      type: Object,
+      default: () => ({
+        subject: "",
+        participants: "",
+        chat: [],
+      }),
+    },
+  },
+  data() {
+    return {
+      chatSubject: this.chatData.subject,
+      chatParticipants: this.chatData.participants,
+      chatContent: this.chatData.chat,
+    };
+  },
+  computed: {
+    filteredSenders() {
+      // Filter sender names that are not "you"
+      return this.chatContent.filter((chat) => chat.sender !== "you");
+    },
+    senderFirstLetter() {
+      if (this.filteredSenders.length > 0) {
+        const sender =
+          this.filteredSenders[this.filteredSenders.length - 1].sender;
+        return sender.charAt(0);
+      }
+      return "";
+    },
+    getLastChatDate() {
+      if (this.chatContent.length > 0) {
+        return this.chatContent[this.chatContent.length - 1].date;
+      }
+      return "";
+    },
+    getLastChatSender() {
+      if (this.chatContent.length > 0) {
+        return this.chatContent[this.chatContent.length - 1].sender;
+      }
+      return "";
+    },
+    getLastChatText() {
+      if (this.chatContent.length > 0) {
+        return this.chatContent[this.chatContent.length - 1].text;
+      }
+      return "";
+    },
   },
 };
 </script>
