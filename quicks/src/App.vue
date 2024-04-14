@@ -1,7 +1,9 @@
 <template>
-  <div class="bg-primary-dark-grey w-screen h-screen items-end justify-end">
+  <div
+    class="bg-primary-dark-grey w-screen h-screen items-end justify-end fixed"
+  >
     <div class="flex flex-col w-1/2 h-5/6 absolute bottom-0 right-0 px-5">
-      <transition name="slide">
+      <!-- <transition name="slide">
         <div class="w-full h-5/6" v-if="showTaskView">
           <tasks></tasks>
         </div>
@@ -10,7 +12,11 @@
         <div class="w-full h-5/6" v-if="showInboxView">
           <inbox></inbox>
         </div>
-      </transition>
+      </transition> -->
+      <div class="w-full h-5/6">
+        <tasks v-if="showTaskView"></tasks>
+        <inbox v-if="showInboxView"></inbox>
+      </div>
       <div
         class="flex w-full h-1/6 flex-row absolute bottom-0 right-0 pb-5 px-5 items-end justify-end"
         style="gap: 26px"
