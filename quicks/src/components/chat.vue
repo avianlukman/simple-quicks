@@ -90,7 +90,6 @@ export default {
     svgIcon,
   },
   props: {
-    // props validation with default value
     chatData: {
       type: Object,
       default: () => ({

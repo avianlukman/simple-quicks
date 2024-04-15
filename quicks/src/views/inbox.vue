@@ -42,8 +42,6 @@ export default {
       let data = await result.json();
 
       this.chats = data;
-      console.log("success load data");
-      console.log(this.chats[0].chats.length);
     },
     fetchData() {
       setTimeout(() => {

@@ -11,8 +11,13 @@
     </div>
     <!-- Content -->
     <LoadingAnimation :isLoading="isLoading" loadingText="Loading chats ..." />
-    <div v-if="!isLoading" class="w-full h-full">
-      <Task />
+    <div v-if="!isLoading" class="w-full h-full overflow-y-scroll">
+      <Task
+        v-for="(task, index) in this.tasks[1].tasks"
+        :key="index"
+        :taskData="task"
+        @delete-task="handleDeleteTask"
+      />
     </div>
     <!-- Tasks -->
   </div>
@@ -30,16 +35,29 @@ export default {
     PrimaryButton,
     Task,
   },
+  created() {
+    this.getTasks();
+  },
   data() {
     return {
       isLoading: true,
+      tasks: [],
     };
   },
   methods: {
+    async getTasks() {
+      let result = await fetch("db.json");
+      let data = await result.json();
+
+      this.tasks = data;
+    },
     fetchData() {
       setTimeout(() => {
         this.isLoading = false;
       }, 2000);
+    },
+    handleDeleteTask(index) {
+      this.tasks[1].tasks.splice(index, 1);
     },
   },
   mounted() {

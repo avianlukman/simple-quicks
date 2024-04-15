@@ -1,10 +1,11 @@
 <template>
   <textarea
     v-model="inputValue"
-    class="w-full rounded-md resize-none focus:outline-none font-lato font-light text-base text-primary-dark-grey"
+    class="w-full rounded-md resize-none focus:outline-none font-lato font-bold text-base text-primary-dark-grey"
     :placeholder="placeholder"
     :style="{
       maxHeight: maxLines ? `calc(${lineHeight} * ${maxLines})` : 'none',
+      textDecoration: taskData.status === 'done' ? 'line-through' : 'none',
     }"
   ></textarea>
 </template>
@@ -34,8 +35,8 @@ export default {
   watch: {
     taskData: {
       handler(newVal) {
-        if (newVal && newVal.description) {
-          this.inputValue = newVal.description;
+        if (newVal && newVal.title) {
+          this.inputValue = newVal.title;
         } else {
           this.inputValue = "";
         }
