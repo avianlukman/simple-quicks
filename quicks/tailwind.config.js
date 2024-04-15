@@ -24,7 +24,7 @@ module.exports = {
       'chat-yellow': '#E5A443',
       'chat-light-yellow': '#FCEED3',
       'chat-purple': '#9B51E0',
-      'chat-light purple': '#EEDCFF',
+      'chat-light-purple': '#EEDCFF',
       'chat-green': '#43B78D',
       'chat-light-green': '#D2F2EA',
       'sticker-white': '#E9F3FF',

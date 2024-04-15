@@ -122,7 +122,7 @@ export default {
         this.buttonMenuFill = newVal ? "bg-primary-dark-grey" : "bg-primary";
         this.buttonInboxFill = newVal ? "bg-indicator-purple" : "bg-white";
         this.menuAdditionalClass = newVal
-          ? "absolute z-10 transform -translate-x-1/3 -translate-y-1 0.5s ease-in-out;"
+          ? "absolute z-10 transform -translate-x-1/3 -translate-y-1 0.5s"
           : "";
         this.inboxAdditionalClass = newVal ? "order-last z-30" : "";
       }
