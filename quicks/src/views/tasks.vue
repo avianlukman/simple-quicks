@@ -7,10 +7,16 @@
       <!-- Drop Down -->
       <DropDown />
       <!-- Button -->
-      <PrimaryButton buttonTitle="New Task"></PrimaryButton>
+      <PrimaryButton
+        buttonTitle="New Task"
+        @click="addNewTask(newTask)"
+      ></PrimaryButton>
     </div>
     <!-- Content -->
-    <LoadingAnimation :isLoading="isLoading" loadingText="Loading chats ..." />
+    <LoadingAnimation
+      :isLoading="isLoading"
+      loadingText="Loading Task List ..."
+    />
     <div v-if="!isLoading" class="w-full h-full overflow-y-scroll">
       <Task
         v-for="(task, index) in this.tasks[1].tasks"
@@ -42,6 +48,12 @@ export default {
     return {
       isLoading: true,
       tasks: [],
+      newTask: {
+        title: "",
+        status: "pending",
+        dueDate: "",
+        description: "",
+      },
     };
   },
   methods: {
@@ -58,6 +70,9 @@ export default {
     },
     handleDeleteTask(index) {
       this.tasks[1].tasks.splice(index, 1);
+    },
+    addNewTask(element) {
+      this.tasks[1].tasks.unshift(element);
     },
   },
   mounted() {

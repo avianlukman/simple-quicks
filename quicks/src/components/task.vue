@@ -40,7 +40,7 @@
       <div class="flex flex-row w-full space-x-3 items-center justify-end">
         <!-- Days Count -->
         <p
-          v-if="taskData.status != 'done' || daysLeft > 0"
+          v-if="taskData.status != 'done' && daysLeft > 0"
           class="font-lato font-light text-sm text-indicator-red"
         >
           {{ daysLeft }} {{ daysLeft === 1 ? "Day" : "Days" }} left
