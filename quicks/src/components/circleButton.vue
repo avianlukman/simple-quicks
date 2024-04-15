@@ -3,12 +3,12 @@
     :class="[
       'flex items-center justify-center rounded-full p-2 cursor-pointer',
       buttonColor,
+      additionalClass,
     ]"
     :style="{
       width: `${buttonSize}px`,
       height: `${buttonSize}px`,
       padding: buttonPadding,
-      backgroundColor: buttonColor,
     }"
   >
     <svg
@@ -31,9 +31,14 @@
     </svg>
   </div>
 </template>
+
 <script>
 export default {
   props: {
+    additionalClass: {
+      type: String,
+      default: "",
+    },
     iconWidth: {
       type: [Number, String],
       default: "26px",

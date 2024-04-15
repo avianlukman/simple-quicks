@@ -189,7 +189,7 @@ export default {
         this.taskData.status === "pending" ? "done" : "pending";
     },
     openDropdown() {
-      this.showDropdown = true;
+      this.showDropdown = !this.showDropdown;
     },
     deleteTask() {
       this.$emit("delete-task", this.taskData);

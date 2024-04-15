@@ -48,7 +48,7 @@
     >
       <div class="relative">
         <div
-          class="absolute items-center align-center rounded-full p-2 bg-primary"
+          class="absolute items-center align-center rounded-full pt-1.5 bg-primary"
           style="width: 34px; height: 34px"
         >
           <p class="font-lato font-bold text-base text-white text-center">
@@ -109,7 +109,7 @@ export default {
   computed: {
     filteredSenders() {
       // Filter sender names that are not "you"
-      return this.chatContent.filter((chat) => chat.sender !== "you");
+      return this.chatContent.filter((chat) => chat.sender !== "You");
     },
     senderFirstLetter() {
       if (this.filteredSenders.length > 0) {
