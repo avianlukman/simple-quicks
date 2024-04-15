@@ -87,6 +87,6 @@ export default {
 }
 
 .chat-details-slide-open {
-  right: 0; /* Slide in to the screen */
+  right: 0;
 }
 </style>
